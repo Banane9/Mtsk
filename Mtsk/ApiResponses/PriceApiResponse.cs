@@ -20,6 +20,9 @@ namespace Mtsk.ApiResponses
         [JsonProperty("prices")]
         public ReadOnlyDictionary<string, PriceList> Prices { get; private set; }
 
+        /// <summary>
+        /// Represents the price list for a station.
+        /// </summary>
         [JsonObject]
         public sealed class PriceList
         {

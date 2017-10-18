@@ -31,10 +31,6 @@ namespace Mtsk
         /// Creates a new instance of the <see cref="MtskApiClient"/> class with the given client Id.
         /// </summary>
         /// <param name="clientId">The client Id required for the API to work.</param>
-        /// <remarks>
-        /// If a "MissingMethodException is thrown here, regarding a set_AutomaticDecompression method,
-        /// then you have to add the Microsoft.Net.Http NuGet Package to your project.
-        /// </remarks>
         public MtskApiClient(string clientId)
         {
             if (string.IsNullOrWhiteSpace(clientId))

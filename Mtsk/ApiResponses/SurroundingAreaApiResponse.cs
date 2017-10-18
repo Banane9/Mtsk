@@ -11,6 +11,9 @@ namespace Mtsk.ApiResponses
     [JsonObject]
     public sealed class SurroundingAreaApiResponse : MtskApiResponse
     {
+        /// <summary>
+        /// Gets the surrounding stations.
+        /// </summary>
         [JsonProperty("stations")]
         public DistantFuelStation[] Stations { get; private set; }
 

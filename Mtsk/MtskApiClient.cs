@@ -28,10 +28,9 @@ namespace Mtsk
         private readonly JsonSerializer serializer = new JsonSerializer();
 
         /// <summary>
-        /// Creates a new instance of the <see cref="JamendoApiClient"/> class with the given client Id.
+        /// Creates a new instance of the <see cref="MtskApiClient"/> class with the given client Id.
         /// </summary>
         /// <param name="clientId">The client Id required for the API to work.</param>
-        /// <param name="getAccessToken">A function that lets the client get the OAuth access token required for write methods.</param>
         /// <remarks>
         /// If a "MissingMethodException is thrown here, regarding a set_AutomaticDecompression method,
         /// then you have to add the Microsoft.Net.Http NuGet Package to your project.
@@ -86,7 +85,7 @@ namespace Mtsk
         /// </summary>
         /// <param name="id">The unique id of the fuel station.</param>
         /// <returns>The deserialized response or null if the call wasn't successful.</returns>
-        public async Task<DetailApiResponse> GetStationDetails(string id)
+        public async Task<DetailApiResponse> GetStationDetailsAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
                 throw new ArgumentNullException(nameof(id), "Id must be a valid unique fuel station id!");
@@ -97,11 +96,11 @@ namespace Mtsk
         /// <summary>
         /// Makes a call to the list.php endpoint to get all fuel stations with a certain radius around a longitude/latitude point.
         /// </summary>
-        /// <param name="longitude">The longitude of the point to search around.</param>
         /// <param name="latitude">The latitude of the point to search around.</param>
+        /// <param name="longitude">The longitude of the point to search around.</param>
         /// <param name="radius">The radius in kilometres to search within. Must be [1; 25].</param>
         /// <returns>The deserialized response or null if the call wasn't successful.</returns>
-        public async Task<SurroundingAreaApiResponse> GetSurroundingAreaAsync(decimal longitude, decimal latitude, decimal radius)
+        public async Task<SurroundingAreaApiResponse> GetSurroundingAreaAsync(decimal latitude, decimal longitude, decimal radius)
         {
             if (radius < 1 || radius > 25)
                 throw new ArgumentOutOfRangeException(nameof(radius), "Radius must be [1; 25]!");
@@ -121,7 +120,7 @@ namespace Mtsk
 
         private async Task<Stream> getAsync(string suffixUrl)
         {
-            var httpResponse = await httpClient.GetAsync($"{baseUrl}{suffixUrl}apikey={clientId}");
+            var httpResponse = await httpClient.GetAsync($"{baseUrl}{suffixUrl}&apikey={clientId}");
 
             if (!httpResponse.IsSuccessStatusCode)
                 return null;

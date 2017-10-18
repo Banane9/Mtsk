@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Mtsk.ApiResponses
 {
@@ -27,6 +29,7 @@ namespace Mtsk.ApiResponses
             /// May be null if the fuel station isn't open (see <see cref="Status"/>) or doesn't offer this fuel.
             /// </summary>
             [JsonProperty("diesel")]
+            [JsonConverter(typeof(DecimalOrBoolConverter))]
             public decimal? Diesel { get; private set; }
 
             /// <summary>
@@ -41,6 +44,7 @@ namespace Mtsk.ApiResponses
             /// May be null if the fuel station isn't open (see <see cref="Status"/>) or doesn't offer this fuel.
             /// </summary>
             [JsonProperty("e10")]
+            [JsonConverter(typeof(DecimalOrBoolConverter))]
             public decimal? SuperE10 { get; private set; }
 
             /// <summary>
@@ -49,26 +53,31 @@ namespace Mtsk.ApiResponses
             /// May be null if the fuel station isn't open (see <see cref="Status"/>) or doesn't offer this fuel.
             /// </summary>
             [JsonProperty("e5")]
+            [JsonConverter(typeof(DecimalOrBoolConverter))]
             public decimal? SuperE5 { get; private set; }
 
             /// <summary>
             /// The different statuses of a station.
             /// </summary>
+            [JsonConverter(typeof(StringEnumConverter))]
             public enum StationStatus
             {
                 /// <summary>
                 /// Station is open at time of request.
                 /// </summary>
+                [EnumMember(Value = "open")]
                 Open,
 
                 /// <summary>
                 /// Station is closed at time of request.
                 /// </summary>
+                [EnumMember(Value = "closed")]
                 Closed,
 
                 /// <summary>
                 /// Station doesn't have prices listed.
                 /// </summary>
+                [EnumMember(Value = "no prices")]
                 NoPrices
             }
         }

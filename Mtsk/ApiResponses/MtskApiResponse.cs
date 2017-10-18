@@ -15,7 +15,7 @@ namespace Mtsk.ApiResponses
         /// <para/>
         /// Usually always: "MTS-K"
         /// </summary>
-        [JsonProperty("message")]
+        [JsonProperty("data")]
         public string Data { get; private set; }
 
         /// <summary>

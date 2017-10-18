@@ -24,9 +24,12 @@ namespace Mtsk
 
         /// <summary>
         /// Gets the price of Diesel at the fuel station.
+        /// <para/>
+        /// May be null if the fuel station isn't open (see <see cref="IsOpen"/>) or doesn't offer this fuel.
         /// </summary>
         [JsonProperty("diesel")]
-        public decimal Diesel { get; private set; }
+        [JsonConverter(typeof(DecimalOrBoolConverter))]
+        public decimal? Diesel { get; private set; }
 
         /// <summary>
         /// Gets the house number of the fuel station.
@@ -78,14 +81,20 @@ namespace Mtsk
 
         /// <summary>
         /// Gets the price of Super E10 at the fuel station.
+        /// <para/>
+        /// May be null if the fuel station isn't open (see <see cref="IsOpen"/>) or doesn't offer this fuel.
         /// </summary>
         [JsonProperty("e10")]
-        public decimal SuperE10 { get; private set; }
+        [JsonConverter(typeof(DecimalOrBoolConverter))]
+        public decimal? SuperE10 { get; private set; }
 
         /// <summary>
         /// Gets the price of Super E5 at the fuel station.
+        /// <para/>
+        /// May be null if the fuel station isn't open (see <see cref="IsOpen"/>) or doesn't offer this fuel.
         /// </summary>
         [JsonProperty("e5")]
-        public decimal SuperE5 { get; private set; }
+        [JsonConverter(typeof(DecimalOrBoolConverter))]
+        public decimal? SuperE5 { get; private set; }
     }
 }

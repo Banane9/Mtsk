@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mtsk", "Mtsk\Mtsk.csproj", "{F9147C92-715B-4D45-8F94-DFB5D30269B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mtsk.Tests", "Mtsk.Tests\Mtsk.Tests.csproj", "{EFCCB077-AD22-4FB9-8DB7-8F95F60CD9BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{F9147C92-715B-4D45-8F94-DFB5D30269B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9147C92-715B-4D45-8F94-DFB5D30269B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9147C92-715B-4D45-8F94-DFB5D30269B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFCCB077-AD22-4FB9-8DB7-8F95F60CD9BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFCCB077-AD22-4FB9-8DB7-8F95F60CD9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFCCB077-AD22-4FB9-8DB7-8F95F60CD9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFCCB077-AD22-4FB9-8DB7-8F95F60CD9BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9596CD0E-5D9E-41AF-8878-5AAA5F7249A0}
 	EndGlobalSection
 EndGlobal

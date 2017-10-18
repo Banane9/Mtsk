@@ -37,6 +37,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DecimalOrBoolConverter.cs" />
     <Compile Include="FuelStation.cs" />
     <Compile Include="ApiResponses\DetailApiResponse.cs" />
     <Compile Include="ApiResponses\PriceApiResponse.cs" />
